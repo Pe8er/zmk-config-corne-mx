@@ -9,13 +9,12 @@
 #define QWERTY 1
 #define GAMING_COLEMAK 2
 #define GAMING_QWERTY 3
-#define LAYERS 4
-#define NAV 5
-#define MOUSE 6
-#define MEDIA 7
-#define NUM 8
-#define SYM 9
-#define FN 10
+#define NAV 4
+#define MOUSE 5
+#define MEDIA 6
+#define NUM 7
+#define SYM 8
+#define FN 9
 
 &nice_view_spi {
     cs-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;
@@ -43,83 +42,72 @@
         compatible = "zmk,keymap";
 
         colemak {
+            label = "colemak";
 // -----------------------------------------------------------------------------------------------------------------------------
 // |        |   Q    |   W    |     F     |     P     |     B     | # |     J     |    L     |    U    |    Y   |   '    |     |
-// | LAYERS | A/LGUI | R/LALT |  S/LCTRL  |  T/LSHFT  |     G     | # |     M     | N/LSHFT  | E/LCTRL | I/LALT | O/LGUI |     |
+// |        | A/LGUI | R/LALT |  S/LCTRL  |  T/LSHFT  |     G     | # |     M     | N/LSHFT  | E/LCTRL | I/LALT | O/LGUI |     |
 // |        |   Z    | X/RALT |     C     |     D     |     V     | # |     K     |    H     |    ,    | ./RALT |   /    |     |
 //                            | ESC/MEDIA | SPACE/NAV | TAB/MOUSE | # | RETURN/SYM | BACKSPACE/NUM | DEL/FN  |
 
             bindings = <
 &trans      &kp Q       &kp W       &kp E          &kp R          &kp T                &kp Y          &kp U         &kp I          &kp O         &kp P          &trans
-&mo LAYERS  &mt LGUI A  &mt LALT S  &mt LCTRL D    &mt LSHFT F    &kp G                &kp H          &mt LSHFT J   &mt LCTRL K    &mt LALT L    &mt LGUI SEMI  &trans
+&trans  &mt LGUI A  &mt LALT S  &mt LCTRL D    &mt LSHFT F    &kp G                &kp H          &mt LSHFT J   &mt LCTRL K    &mt LALT L    &mt LGUI SEMI  &trans
 &trans      &kp Z       &mt RALT X  &kp C          &kp V          &kp B                &kp N          &kp M         &kp COMMA       &mt RALT DOT  &kp FSLH       &trans
                                     &lt MEDIA ESC  &lt NAV SPACE  &lt MOUSE TAB        &lt SYM RETURN  &lt NUM BACKSPACE  &lt FN DEL
             >;
         };
 
         qwerty {
+            label = "qwerty";
 // -----------------------------------------------------------------------------------------------------------------------------
 // |        |   Q    |   W    |     E     |     R     |     T     | # |     Y     |     U    |    I    |    O   |   P    |     |
-// | LAYERS | A/LGUI | S/LALT |  D/LCTRL  |  F/LSHFT  |     G     | # |     H     | J/LSHFT  | K/LCTRR | L/LALT | ;/LGUI |     |
+// |        | A/LGUI | S/LALT |  D/LCTRL  |  F/LSHFT  |     G     | # |     H     | J/LSHFT  | K/LCTRR | L/LALT | ;/LGUI |     |
 // |        |   Z    | X/RALT |     C     |     V     |     B     | # |     N     |     M    |    ,    | ./RALT |   /    |     |
 //                            | ESC/MEDIA | SPACE/NAV | TAB/MOUSE | # | RETURN/SYM | BACKSPACE/NUM | DEL/FN  |
 
             bindings = <
 &trans      &kp Q       &kp W       &kp F          &kp P          &kp B                &kp J          &kp L         &kp U          &kp Y         &kp SQT     &trans
-&mo LAYERS  &mt LGUI A  &mt LALT R  &mt LCTRL S    &mt LSHFT T    &kp G                &kp M          &mt LSHFT N   &mt LCTRL E    &mt LALT I    &mt LGUI O  &trans
+&trans  &mt LGUI A  &mt LALT R  &mt LCTRL S    &mt LSHFT T    &kp G                &kp M          &mt LSHFT N   &mt LCTRL E    &mt LALT I    &mt LGUI O  &trans
 &trans      &kp Z       &mt RALT X  &kp C          &kp D          &kp V                &kp K          &kp H         &kp COMMA       &mt RALT DOT  &kp FSLH    &trans
                                     &lt MEDIA ESC  &lt NAV SPACE  &lt MOUSE TAB        &lt SYM RETURN  &lt NUM BACKSPACE  &lt FN DEL
             >;
         };
 
         gaming_colemak {
+            label = "game_col";
 // ----------------------------------------------------------------------------------------------------
 // |        |   Q   |   W   |   F   |   P   |   B   | # |   J   |   L   |   U   |   Y   |   '   |     |
-// | LAYERS |   A   |   R   |   S   |   T   |   G   | # |   M   |   N   |   E   |   I   |   O   |     |
+// |        |   A   |   R   |   S   |   T   |   G   | # |   M   |   N   |   E   |   I   |   O   |     |
 // |        |   Z   |   X   |   C   |   D   |   V   | # |   K   |   H   |   ,   |   .   |   /   |     |
 //                          |  ESC  | SPACE |  TAB  | # | RETURN | BACKSPACE  |  DEL  |
 
             bindings = <
 &trans      &kp Q  &kp W  &kp E    &kp R      &kp T          &kp Y      &kp U     &kp I     &kp O    &kp P     &trans
-&mo LAYERS  &kp A  &kp S  &kp D    &kp F      &kp G          &kp H      &kp J     &kp K     &kp L    &kp SEMI  &trans
+&trans  &kp A  &kp S  &kp D    &kp F      &kp G          &kp H      &kp J     &kp K     &kp L    &kp SEMI  &trans
 &trans      &kp Z  &kp X  &kp C    &kp V      &kp B          &kp N      &kp M     &kp COMMA  &kp DOT  &kp FSLH  &trans
                           &kp ESC  &kp SPACE  &kp TAB        &kp RETURN  &kp BACKSPACE  &kp DEL
             >;
         };
 
         gaming_qwerty {
+            label = "game_qwe";
 
 // ----------------------------------------------------------------------------------------------------
 // |        |   Q   |   W   |   E   |   R   |   T   | # |   Y   |   U   |   I   |   O   |   P   |     |
-// | LAYERS |   A   |   S   |   D   |   F   |   G   | # |   H   |   J   |   K   |   L   |   ;   |     |
+// |        |   A   |   S   |   D   |   F   |   G   | # |   H   |   J   |   K   |   L   |   ;   |     |
 // |        |   Z   |   X   |   C   |   V   |   B   | # |   N   |   M   |   ,   |   .   |   /   |     |
 //                          |  ESC  | SPACE |  TAB  | # | RETURN | BACKSPACE  |  DEL  |
 
             bindings = <
 &trans      &kp Q  &kp W  &kp K    &kp S      &kp F          &kp O      &kp I     &kp L     &kp SEMI  &kp R     &trans
-&mo LAYERS  &kp A  &kp D  &kp V    &kp E      &kp G          &kp M      &kp Y     &kp N     &kp U     &kp SQT   &trans
+&trans  &kp A  &kp D  &kp V    &kp E      &kp G          &kp M      &kp Y     &kp N     &kp U     &kp SQT   &trans
 &trans      &kp Z  &kp X  &kp C    &kp B      &kp T          &kp J      &kp H     &kp COMMA  &kp DOT   &kp FSLH  &trans
                       &kp ESC  &kp SPACE  &kp TAB        &kp RETURN  &kp BACKSPACE  &kp DEL
             >;
         };
 
-        layers {
-// ---------------------------------------------------------------------------------------------
-// |      |     |     |     |     |     | # |     |     |         |                |     |     |
-// | HELD |     |     |     |     |     | # |     |     | COLEMAK | GAMING_COLEMAK |     |     |
-// |      |     |     |     |     |     | # |     |     | QWERTY  | GAMING_QWERTY  |     |     |
-//                    |     |     |     | # |     |     |         |
-
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans        &trans  &trans  &trans       &trans              &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans        &trans  &trans  &to COLEMAK  &to GAMING_COLEMAK  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans        &trans  &trans  &to QWERTY   &to GAMING_QWERTY   &trans  &trans
-                        &trans  &trans  &trans        &trans  &trans  &trans
-            >;
-        };
-
-
         navigation {
+            label = "nav";
 // -------------------------------------------------------------------------------------------
 // |     |      |      |       |       |     | # | REDO  | CUT  | COPY | PASTE | UNDO  |     |
 // |     | LGUI | LALT | LCTRL | LSHFT |     | # | CAPS  | LEFT | DOWN | UP    | RIGHT |     |
@@ -138,6 +126,7 @@
 // Add mouse keys when implemented in ZMK
 
         mouse {
+            label = "mouse";        
 // ------------------------------------------------------------------------------------
 // |     |      |      |       |       |      | # |     |     |     |     |     |     |
 // |     | LGUI | LALT | LCTRL | LSHFT |      | # |     |     |     |     |     |     |
@@ -153,21 +142,23 @@
         };
 
         media {
+            label = "media";
 // -----------------------------------------------------------------------------------------------------
-// |     |      |      |       |       |      | # | BOOTLOAD | EP_OFF | BR_D   | BR_U   | EP_ON  |     |
-// |     | LGUI | LALT | LCTRL | LSHFT |      | # | trans    | PREV   | VOL_D  | VOL_U  | NEXT   |     |
-// |     |      | RALT |       |       |      | # | OUT_BLE  | BT_0   | BT_PRV | BT_NXT | BT_CLR |     |
-//                     | HELD  |       |      | # | STOP     | PLAY   | MUTE   |
+// |     |      | QWERTY | G_QWERTY | COLEM | G_COLEM | # | BOOTLOAD | EP_OFF | BR_D   | BR_U   | EP_ON  |     |
+// |     | LGUI | LALT   | LCTRL    | LSHFT |         | # | trans    | PREV   | VOL_D  | VOL_U  | NEXT   |     |
+// |     |      | RALT   |          |       |         | # | OUT_BLE  | BT_0   | BT_PRV | BT_NXT | BT_CLR |     |
+//                       | HELD     |       |         | # | STOP     | PLAY   | MUTE   |
 
-            bindings = <
-&trans  &trans    &trans    &trans     &trans     &trans        &bootloader   &ext_power EP_OFF  &cp C_BRI_DN  &cp C_BRI_UP  &ext_power EP_ON  &trans
-&trans  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &trans        &trans        &cp C_PREV         &cp C_VOL_DN  &cp C_VOL_UP  &cp C_NEXT        &trans
-&trans  &trans    &kp RALT  &trans     &trans     &trans        &out OUT_BLE  &bt BT_SEL 0       &bt BT_PRV    &bt BT_NXT    &bt BT_CLR        &trans
-                            &trans     &trans     &trans        &cp C_STOP    &cp C_PLAY         &cp C_MUTE
+            bindings = <            
+&trans  &trans    &to QWERTY  &to GAMING_QWERTY  &to COLEMAK  &to GAMING_COLEMAK        &bootloader   &ext_power EP_OFF  &cp C_BRI_DN  &cp C_BRI_UP  &ext_power EP_ON  &trans
+&trans  &kp LGUI  &kp LALT    &kp LCTRL          &kp LSHFT    &trans                    &trans        &cp C_PREV         &cp C_VOL_DN  &cp C_VOL_UP  &cp C_NEXT        &trans
+&trans  &trans    &kp RALT    &trans             &trans       &trans                    &out OUT_BLE  &bt BT_SEL 0       &bt BT_PRV    &bt BT_NXT    &bt BT_CLR        &trans
+                              &trans             &trans       &trans                    &cp C_STOP    &cp C_PLAY         &cp C_MUTE
             >;
         };
 
         numbers {
+            label = "numbers";
 // -----------------------------------------------------------------------------------
 // |     |  [  |  7  |  8  |  9  |  ]  | # |     |       |       |      |      |     |
 // |     |  ;  |  4  |  5  |  6  |  =  | # |     | LSHFT | LCTRL | LALT | LGUI |     |
@@ -183,6 +174,7 @@
         };
 
         symbols {
+            label = "symbols";
 // ------------------------------------------------------------------------------------
 // |     |  {  |  &  |  *  |  (  |  }  | # |      |       |       |      |      |     |
 // |     |  :  |  $  |  %  |  ^  |  +  | # |      | LSHFT | LCTRL | LALT | LGUI |     |
@@ -198,6 +190,7 @@
         };
 
         function {
+            label = "function";
 // ------------------------------------------------------------------------------------------
 // |     |  F12 |  F7  |  F8  |  F9   | PSCRN | # |     |       |       |      |      |     |
 // |     |  F11 |  F4  |  F5  |  F6   | SLCK  | # |     | LSHFT | LCTRL | LALT | LGUI |     |
